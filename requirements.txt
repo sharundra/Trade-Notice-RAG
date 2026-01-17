@@ -1,0 +1,8 @@
+langchain
+langchain-openai
+langchain-community
+chromadb
+pdfplumber
+streamlit
+langchain_classic
+dotenv
