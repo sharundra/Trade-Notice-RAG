@@ -30,43 +30,46 @@ export_policy_rag/
 ├── app.py              # Streamlit User Interface
 ├── requirements.txt    # Project dependencies
 └── .env                # Environment variables (API Keys)
+
 ---
 ```
 
-## 🚀 Flow of Execution & Setup
+## 🚀 Development & Execution Flow
 
-Follow these steps to set up and run the project.
+Follow these steps to build and run the project from scratch.
 
-### 1. Prerequisites
-*   Python 3.9+
-*   An OpenAI API Key
-
-### 2. Installation
+### 1. Prerequisites & Setup
 Create a virtual environment and install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-
-Create a `.env` file in the root directory and add your key:
+Create a `.env` file in the root directory and add your OpenAI key:
 ```text
 OPENAI_API_KEY=sk-your-api-key-here
 ```
 
-### 3. Configuration (`src/config.py`)
-The `config.py` file manages settings like chunk size, model selection (GPT-4o/GPT-3.5), and file paths. No changes are usually needed here unless you want to switch models.
+### 2. Configuration (`src/config.py`)
+Set up the `config.py` file to manage settings like chunk size, model selection (GPT-4o), and file paths.
 
-### 4. Data Ingestion (`src/ingest.py`)
-This script handles the complex logic of parsing the PDF tables. You can run it independently to verify that the data is being extracted correctly:
-```bash
-python -m src.ingest
-```
-*Output: You will see a sample parsed document printed in the console.*
+### 3. Data Ingestion Logic (`src/ingest.py`)
+Implement the PDF parsing logic using `pdfplumber`. This script handles the extraction of tabular data and row serialization.
+*   **Test this step:** Run the script independently to verify data is being parsed correctly.
+    ```bash
+    python -m src.ingest
+    ```
+    *(You should see a sample parsed document printed in the console).*
 
-### 5. Vector Store Creation (`src/vector_store.py`)
-This module handles embedding the parsed data into **ChromaDB**. It is automatically called by the application, but it ensures that embeddings are created only once and persisted to disk for efficiency.
+### 4. Vector Store Logic (`src/vector_store.py`)
+Implement the logic to initialize **ChromaDB**. This script creates embeddings from the parsed data and persists them to disk so we don't have to re-process the PDF every time.
 
-### 6. Run the Application
-Launch the Streamlit Interface. The first run will take a few seconds to process the PDF and build the vector database.
+### 5. RAG Chain Logic (`src/rag_chain.py`)
+Create the retrieval chain. This script connects the Vector Store to the LLM and defines the system prompt that ensures the AI interprets Export Policies strictly.
+
+### 6. User Interface (`app.py`)
+Build the **Streamlit** frontend. This script imports the RAG chain and provides a chat interface for the user.
+
+### 7. Run the Application
+Launch the final application. The first run will take a few seconds to process the PDF and build the vector database.
 ```bash
 streamlit run app.py
 ```
@@ -89,3 +92,4 @@ Once the UI is running, try asking:
 *   **ChromaDB:** Local Vector Store.
 *   **pdfplumber:** Advanced PDF Table Extraction.
 *   **Streamlit:** Interactive Web UI.
+```
