@@ -92,4 +92,3 @@ Once the UI is running, try asking:
 *   **ChromaDB:** Local Vector Store.
 *   **pdfplumber:** Advanced PDF Table Extraction.
 *   **Streamlit:** Interactive Web UI.
-```
