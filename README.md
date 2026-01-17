@@ -1,5 +1,3 @@
-
-```markdown
 # 🚢 Trade Policy RAG Agent
 
 An AI-powered Retrieval-Augmented Generation (RAG) system designed to answer questions about **India's Export Policy (Trade Notice No. 11/2024-25)**. This system accurately interprets complex tabular data containing ITC(HS) Codes, descriptions, and export conditions.
@@ -32,8 +30,6 @@ export_policy_rag/
 ├── app.py              # Streamlit User Interface
 ├── requirements.txt    # Project dependencies
 └── .env                # Environment variables (API Keys)
-```
-
 ---
 
 ## 🚀 Flow of Execution & Setup
@@ -92,4 +88,3 @@ Once the UI is running, try asking:
 *   **ChromaDB:** Local Vector Store.
 *   **pdfplumber:** Advanced PDF Table Extraction.
 *   **Streamlit:** Interactive Web UI.
-```
