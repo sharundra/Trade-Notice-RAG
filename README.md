@@ -31,6 +31,7 @@ export_policy_rag/
 ├── requirements.txt    # Project dependencies
 └── .env                # Environment variables (API Keys)
 ---
+```
 
 ## 🚀 Flow of Execution & Setup
 
