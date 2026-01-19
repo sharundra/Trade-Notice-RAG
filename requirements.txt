@@ -6,3 +6,4 @@ pdfplumber
 streamlit
 langchain_classic
 dotenv
+matplotlib
